@@ -1,0 +1,17 @@
+<ion-view view-title="Promoções">
+    <ion-content>
+        <div class="pequeno">
+        <ion-item ng-repeat="promo in promos">
+
+            <ion-list class="item">
+                            {{promo}}
+                    <div class="direita">
+                        <button class="button button-energized" ng-click="edit()">Editar</button>
+                        <button class="button button-assertive" ng-click="delete()">Apagar</button>
+                    </div>
+            </ion-list>
+        </ion-item>
+            <button class="button button-positive" ng-click="add()">Adicionar</button>
+        </div>
+    </ion-content>
+</ion-view>

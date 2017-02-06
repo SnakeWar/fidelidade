@@ -1,0 +1,14 @@
+<ion-view view-title="Mensagens">
+    <ion-content>
+        <div class="pequeno">
+            <ion-item class="" ng-repeat="message in messages"">
+            <ion-list class="list">
+                Título: {{message.title}}
+                <ion-list>Mensagem: {{message.text}}</ion-list>
+                <ion-list>Empresa: {{message.company.name}}</ion-list>
+
+            </ion-list>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

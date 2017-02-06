@@ -1,0 +1,22 @@
+<ion-view view-title="Recompensas">
+    <ion-content>
+        <div class="pequeno">
+        <ion-item ng-repeat="reward in rewards">
+            <ion-list class="item">
+                <div>
+                    <div class="font25">
+                        <div>
+                            {{reward}}
+                        </div>
+                    </div>
+                    <div class="direita">
+                        <button class="button button-energized" ng-click="">Editar</button>
+                        <button class="button button-assertive" ng-click="">Apagar</button>
+                    </div>
+                </div>
+            </ion-list>
+        </ion-item>
+            <button class="button button-positive" ng-click="add()">Adicionar</button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+/* Empty. Add your own CSS if you like */
+.menor{
+    width:300px;
+    margin: 50px auto 0 auto;
+}
+.direita{
+    float: right;
+}
+.pequeno{
+    width: 80%;
+    margin: 0 auto 0 auto;
+}

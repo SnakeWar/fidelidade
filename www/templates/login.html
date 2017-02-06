@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Usuário</span>
+          <input style="text-align: center" type="email" ng-model="user.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Senha</span>
+          <input style="text-align: center" type="password" ng-model="user.password" ng-hide="showPassword">
+          <input style="text-align: center" type="text" ng-model="user.password" ng-show="showPassword">
+        </label>
+        <ion-checkbox on-touch="showPassword = !showPassword">Mostrar Senha</ion-checkbox>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
