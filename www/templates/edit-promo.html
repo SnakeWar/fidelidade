@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Login</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="editPromo()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Nome</span>
+                    <input style="text-align: center" type="text" ng-model="promo.nome">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Descrição</span>
+                    <input style="text-align: center" type="text" ng-model="promo.des">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Empresa</span>
+                    <input style="text-align: center" type="text" ng-model="promo.company">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Adicionar</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -80,14 +80,12 @@ angular.module('starter.controllers', [])
 })
 .controller('PerfilCtrl', function($scope) {
     $scope.dados = {};
-    $scope.nome = {};
-    $scope.nome.grande = "Mourais Mourelha";
     $scope.dados.nome = "Nome: Mourais Mourelha";
     $scope.dados.email = "E-mail: teste@teste.com";
     $scope.dados.funcao = "Função: Atendente";
     $scope.dados.privilegio = "Privilégio: Adm";
 })
-.controller('PromoCtrl', function($scope) {
+.controller('PromoCtrl', function($scope, $state) {
     $scope.promos = {};
     function Promotion(args) {
         args = args || {};
@@ -100,17 +98,40 @@ angular.module('starter.controllers', [])
     console.log($scope.promos);
 
     $scope.edit = function () {
-
+        $state.go('edit-promo');
     }
     $scope.delete = function () {
 
     }
     $scope.add = function () {
+        $state.go('add-promo');
 
     }
 
 })
-.controller('RewardsCtrl', function($scope) {
+    .controller('PromoAddCtrl', function($scope) {
+        $scope.rewards = {};
+        function Reward(args) {
+            args = args || {};
+            this.company = args.company || "";
+            this.name = args.name || "";
+            this.points = args.points || "";
+        }
+        var rewardsCollection = Backendless.Persistence.of( Reward ).find();
+        $scope.rewards = rewardsCollection.data;
+        console.log($scope.rewards);
+
+        $scope.edit = function () {
+
+        }
+        $scope.delete = function () {
+
+        }
+        $scope.add = function () {
+
+        }
+
+    }).controller('RewardsCtrl', function($scope) {
     $scope.rewards = {};
     function Reward(args) {
         args = args || {};

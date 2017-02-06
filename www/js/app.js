@@ -31,7 +31,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           url: '/login',
           templateUrl: 'templates/login.html',
           controller: 'LoginCtrl'
-      }).state('app', {
+      }).state('add-promo', {
+      url: '/add-promo',
+      templateUrl: 'templates/add-promo.html',
+      controller: 'PromoAddCtrl'
+  }).state('edit-promo', {
+      url: '/edit-promo',
+      templateUrl: 'templates/edit-promo.html',
+      controller: 'PromoEditCtrl'
+  }).state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
