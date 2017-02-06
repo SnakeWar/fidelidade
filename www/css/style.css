@@ -1,12 +1,24 @@
 /* Empty. Add your own CSS if you like */
 .menor{
-    width:300px;
+    width:80%;
     margin: 50px auto 0 auto;
 }
 .direita{
     float: right;
 }
-.pequeno{
-    width: 80%;
-    margin: 0 auto 0 auto;
+body {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
+
+.header .col {
+    background-color:#387ef5;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.col {
+    border-bottom: solid 1px grey;
+
+}
+

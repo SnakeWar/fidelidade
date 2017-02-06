@@ -1,16 +1,20 @@
 <ion-view view-title="Promoções">
     <ion-content>
-        <div class="pequeno">
-        <ion-item ng-repeat="promo in promos">
+        <div class="menor list">
+            <div class="row header">
+                <div class="col">Nome</div>
+                <div class="col">Descrição</div>
+                <div class="col">Ações</div>
+            </div>
+            <div class="row" ng-repeat="promo in promos">
+                <div class="col">{{promo.title}}</div>
+                <div class="col">{{promo.description}}</div>
 
-            <ion-list class="item">
-                            {{promo}}
-                    <div class="direita">
-                        <button class="button button-energized" ng-click="edit()">Editar</button>
-                        <button class="button button-assertive" ng-click="delete()">Apagar</button>
-                    </div>
-            </ion-list>
-        </ion-item>
+                <div class="col">
+                    <button class="button button-energized" ng-click="">Editar</button>
+                    <button class="button button-assertive" ng-click="">Apagar</button>
+                </div>
+            </div>
             <button class="button button-positive" ng-click="add()">Adicionar</button>
         </div>
     </ion-content>

@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
     var user = {};
     $scope.doLogin = function() {
 
-        Backendless.enablePromises();
+        /*Backendless.enablePromises();
         console.log('Doing login', $scope.user);
         $ionicLoading.show({
             template: 'Carregando...',
@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
             $ionicLoading.hide().then(function() {
                 console.log("The loading indicator is now hidden");
             });
-            $state.go('app.logout');
+            $state.go('app.perfil');
 
         }
 
@@ -74,7 +74,7 @@ angular.module('starter.controllers', [])
             $scope.user = {};
         }
 
-        Backendless.UserService.login($scope.user.email, $scope.user.password).then(userLoggedIn).catch(gotError);
+        Backendless.UserService.login($scope.user.email, $scope.user.password).then(userLoggedIn).catch(gotError);*/
         $state.go('app.perfil');
     };
 })
@@ -88,6 +88,17 @@ angular.module('starter.controllers', [])
     $scope.dados.privilegio = "Privilégio: Adm";
 })
 .controller('PromoCtrl', function($scope) {
+    $scope.promos = {};
+    function Promotion(args) {
+        args = args || {};
+        this.company = args.company || "";
+        this.title = args.title || "";
+        this.description = args.description || "";
+    }
+    var promosCollection = Backendless.Persistence.of( Promotion ).find();
+    $scope.promos = promosCollection.data;
+    console.log($scope.promos);
+
     $scope.edit = function () {
 
     }
@@ -97,11 +108,20 @@ angular.module('starter.controllers', [])
     $scope.add = function () {
 
     }
-    $scope.promos ={promo1: "Promoção de segunda à sexta",
-        promo2: "Promoção Fim de Semana",
-        promo3: "Promoção família", };
+
 })
 .controller('RewardsCtrl', function($scope) {
+    $scope.rewards = {};
+    function Reward(args) {
+        args = args || {};
+        this.company = args.company || "";
+        this.name = args.name || "";
+        this.points = args.points || "";
+    }
+    var rewardsCollection = Backendless.Persistence.of( Reward ).find();
+    $scope.rewards = rewardsCollection.data;
+    console.log($scope.rewards);
+
     $scope.edit = function () {
 
     }
@@ -111,9 +131,7 @@ angular.module('starter.controllers', [])
     $scope.add = function () {
 
     }
-    $scope.rewards ={reward1: "100 Pontos: Grátis, 1 almoço",
-        reward2: "500 Pontos Grátis, um Jantar para 2",
-        reward3: "1000 Pontos: Grátis, almoço para 5 Pessoas", };
+
 })
 .controller('MessageCtrl', function($scope) {
     $scope.messages = {};
@@ -123,17 +141,17 @@ angular.module('starter.controllers', [])
         this.text = args.text || "";
         this.title = args.title || "";
     }
-    var contactsCollection = Backendless.Persistence.of( Message ).find();
+    var messagesCollection = Backendless.Persistence.of( Message ).find();
 
 
-    $scope.messages = contactsCollection.data;
+    $scope.messages = messagesCollection.data;
 
-    console.log(contactsCollection);
+    console.log(messagesCollection);
 
     console.log($scope.usuario);
 
 })
-.controller('LogoutCtrl', function ($scope, $state, $ionicPopup) {
+.controller('LogoutCtrl', function ($scope, $state) {
     $scope.logout = function () {
         try {
             // now log out:
@@ -145,10 +163,6 @@ angular.module('starter.controllers', [])
             else {
                 if (Backendless.UserService.logout())
                 {
-                    $ionicPopup.alert({
-                        title: 'Você saiu!',
-                        template: '<p style="text-align: center">Você saiu com sucesso!</p>'
-                    });
                     $state.go('login');
                 }
             }
